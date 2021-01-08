@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+}
+
+/* MODAL CSS */
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+}
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+.ReactModal__Content {
+  margin: auto;
+  height: auto;
+  max-width: 60em;
+}
+.ReactModal__Content form {
+  display: block;
+  margin: 10px;
+}
+
+.ReactModal__Content > form > h2 {
+  text-align: center;
+}
+.ReactModal__Content > form > #btn-cross {
+  float: right;
+}

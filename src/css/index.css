@@ -1,0 +1,434 @@
+body {
+  size: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: linear-gradient(200deg, rgb(45, 0, 66), rgb(8, 0, 83)) no-repeat
+    center center fixed;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+ul {
+  border: 1.5px rgba(0, 0, 0, 0.363) solid;
+  list-style: none;
+}
+
+div.sidebar-content > a {
+  display: block;
+}
+
+div.sidebar-content > a > button,
+div.sidebar-content > a {
+  color: gold;
+}
+
+div.sidebar-content > a > button {
+  width: 100%;
+}
+
+div.sidebar-content > a > button:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+div.sidebar-content > a:hover {
+  background-color: #c9006e;
+  text-shadow: 0px 1px 1px goldenrod;
+}
+
+div.sidebar-content > a > button:hover {
+  text-shadow: 0px 1px 1px goldenrod;
+}
+
+h1 {
+  padding: 0.25em;
+}
+
+footer {
+  text-align: right;
+  padding-right: 1em;
+  margin-top: 2em;
+  background-color: rgba(128, 128, 128, 0.479);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 1.5em;
+  overflow: hidden;
+}
+
+nav {
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: inherit;
+  margin-bottom: 10em;
+}
+
+nav > div.container-fluid > div.navbar-header > h1 {
+  font-family: "Della Respira", serif;
+  color: #f50087;
+  text-shadow: 0px 5px 5px#9000c9;
+}
+
+div.navbar-header > h1 {
+  margin: auto;
+}
+
+i.fa-navicon {
+  font-size: 24px;
+  color: rgb(119, 0, 255);
+}
+
+button {
+  margin: 0.25em;
+}
+
+table {
+  max-width: 1280px;
+}
+
+table > tbody#dataTable tr td {
+  align-items: center;
+  max-width: 8em;
+  overflow: hidden;
+}
+
+table > tbody#dataTable tr td p {
+  padding: 0.25em;
+  padding-bottom: 0;
+  overflow: clip;
+}
+
+tbody#dataTable tr td p button.btn.info-modal-button {
+  padding: 0;
+  margin: 0;
+  height: inherit;
+  width: inherit;
+  font-weight: bold;
+  font-size: medium;
+}
+
+a.btn {
+  color: white;
+  font-size: x-large;
+}
+
+.navbar-brand > h1 {
+  margin-right: 0;
+  text-align: center;
+}
+
+/* LOGIN PAGE ================================================= */
+
+div.login-container {
+  width: fit-content;
+  text-align: center;
+  flex: auto;
+  margin: auto;
+  margin-top: 10em;
+  padding: 5%;
+  border: 2px violet double;
+  border-radius: 10px;
+}
+
+div.login-container > div.user-icon-container {
+  margin-bottom: 2em;
+}
+
+div.login-container > div.user-icon-container > svg {
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 5px #aa94ce;
+  color: beige;
+}
+
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+div.login-container > div.form-group > input.form-control.text-input {
+  color: beige;
+  transition: 0.2s ease-in-out;
+  margin: auto;
+  margin-bottom: 1em;
+  display: block;
+  border: none;
+  border-bottom: 1px solid beige;
+  border-radius: 0px;
+  background-color: inherit;
+  outline: none;
+}
+
+div.login-container
+  > div.form-group
+  > input.form-control.text-input::placeholder {
+  color: rgb(236, 236, 61);
+}
+
+div.login-container > div.form-group > input.form-control.text-input:focus {
+  transition: 0.3s linear;
+  outline: none;
+  border-bottom: 1px solid #601aca;
+  box-shadow: 0px 0px 5px 5px 0px#4e00b4;
+  text-shadow: 1px 3px 2px rgb(245, 245, 195);
+}
+
+div.login-container > button.btn-login {
+  transition: 0.5s ease-in-out;
+  background-color: inherit;
+  color: beige;
+  border: none;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: large;
+}
+
+div.login-container > button.btn-login:focus {
+  outline: none;
+}
+
+div.login-container button.btn-login:hover {
+  background-image: radial-gradient(
+    rgba(238, 255, 0, 0),
+    rgba(99, 105, 14, 0.171),
+    rgba(218, 165, 32, 0.342)
+  );
+  box-shadow: 0px 0px 10px 1px rgba(218, 165, 32, 0.342);
+  text-shadow: 1px 1px 2.5px rgb(236, 236, 102);
+}
+
+.btn-login > a {
+  color: white;
+}
+
+/*MAKE APPOINTMENT BUTTON ON HOMEPAGE================================================================*/
+div.homePage-btn-container-1 {
+  transition: all 5s;
+  background-color: rgba(81, 0, 134, 0.151);
+  border-radius: 50%;
+  padding: 1.5em;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  max-width: 55em;
+  max-height: 55em;
+  border: 0.5px solid;
+  border-color: #000dc9;
+  box-shadow: 0px 0px 20px 0px rgb(47, 0, 255);
+}
+div.homePage-btn-container-2 {
+  transition: all 5s;
+  background-color: inherit;
+  border-radius: 50%;
+  padding: 1em;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  max-width: 50em;
+  max-height: 50em;
+  border: 0.5px solid;
+  border-color: #ff008c;
+  box-shadow: 0px 0px 15px 0px rgb(183, 0, 255);
+}
+
+div.homePage-btn-container-2 > button.create-appointment-button {
+  background-color: inherit;
+  transition: ease-in-out 0.4s;
+  border: 2px rgba(0, 0, 0, 0.486) solid;
+  height: 10em;
+  width: 10em;
+  font-weight: 700;
+  border-radius: 50%;
+  color: #ff00aa;
+  text-shadow: 0.9px 1.5px 1px#990c5a;
+  border: 0.5px solid;
+  border-color: #f000bc;
+  box-shadow: 0px 0px 12px 0px rgb(255, 0, 200);
+}
+
+div.homePage-btn-container-2 > button.create-appointment-button:hover {
+  color: rgb(255, 0, 234);
+  transition: all 0.7s;
+  font-size: 1.5em;
+}
+
+div.homePage-btn-container-2 > button.create-appointment-button:focus {
+  outline: none;
+}
+
+div.btn-group button {
+  box-shadow: 0px 10px 7px rgba(26, 27, 43, 0.466);
+  margin-bottom: 1em;
+  width: 10em;
+  height: 3em;
+}
+
+div.svc-btn-container {
+  margin-bottom: 2em;
+}
+
+div.svc-btn-container > button.btn-svc {
+  color: black;
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.719);
+}
+
+div.svc-btn-container > button.btn-svc:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(75, 186, 214);
+  transition: 0.2s;
+}
+
+.btn b {
+  color: whitesmoke;
+}
+
+table > tbody {
+  background-color: rgb(255, 255, 255);
+}
+table > tbody > tr > td {
+  font-size: large;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: normal;
+}
+
+div.table-tools button.add-btn {
+  border-radius: 12px;
+  color: white;
+}
+
+div.table-tools button.add-btn:hover,
+button#delete-btn:hover,
+button.search-btn:hover {
+  color: #1f1f4f;
+  background-color: white;
+}
+
+input.search-field {
+  height: 3em;
+  border: 3px solid;
+  border-color: rgba(9, 9, 26, 0.37);
+  border-radius: 15px;
+  margin: 0.5em;
+  padding-left: 1em;
+}
+
+input.search-field:focus {
+  transition: border 2s;
+  outline: none;
+  border-color: rgba(0, 132, 255, 0.61);
+  box-shadow: 0px 10px 7px rgba(44, 95, 119, 0.781);
+}
+
+div.search-container {
+  display: inline;
+  margin: 2em;
+}
+
+div.search-container button.search-btn {
+  border-radius: 50px;
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.green {
+  color: rgb(29, 139, 19);
+}
+
+@media (max-width: 900px) {
+  nav.navbar-navbar-inverse {
+    margin-bottom: 5em;
+  }
+  nav.navbar-navbar-inverse > div.container-fluid > div.navbar-header > h1 {
+    margin-top: 1em;
+    white-space: normal;
+  }
+  nav.navbar-navbar-inverse > div.container-fluid > div.navbar-header > h1 {
+    width: auto;
+    font-size: 2em;
+  }
+  div.btn-group button {
+    width: auto;
+    height: auto;
+    padding: 5px;
+  }
+
+  table > tbody > thead {
+    width: auto;
+  }
+  table.table.table-striped thead.thead-dark tr th h3 {
+    font-size: small;
+    font-weight: 500;
+  }
+  table > tbody#dataTable tr td {
+    font-weight: bold;
+    font-size: small;
+    margin: 10px;
+    padding: 0.3em;
+  }
+  tbody#dataTable tr td button#delete-btn,
+  button#update-btn {
+    padding: 5px;
+    margin: 0;
+    font-size: small;
+  }
+
+  table > tbody#dataTable tr td p {
+    margin: 5px;
+  }
+
+  tbody#dataTable tr td p button.btn.info-modal-button {
+    font-size: small;
+  }
+
+  /*DATEPICKER*/
+
+  html
+    body.ReactModal__Body--open
+    div.ReactModalPortal
+    div.ReactModal__Overlay.ReactModal__Overlay--after-open
+    div#form-modal.ReactModal__Content.ReactModal__Content--after-open
+    form
+    div.datepicker-container
+    div.form-group.form-date
+    div.react-datepicker__tab-loop
+    div.react-datepicker-popper {
+    left: -20px !important;
+  }
+
+  .react-datepicker__month-container {
+    max-width: 190px;
+  }
+  .react-datepicker__month {
+    margin: 0;
+  }
+  div.react-datepicker__day {
+    width: 1.25rem;
+  }
+  .react-datepicker__time-container {
+    width: 65px !important;
+    overflow: hidden;
+  }
+  .react-datepicker__time-box {
+    width: 65px !important;
+  }
+  li.react-datepicker__time-list-item {
+    padding: 0px !important;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Della+Respira&display=swap");
