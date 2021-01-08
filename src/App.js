@@ -22,7 +22,7 @@ const HomePage = lazy(() => import('./components/layouts/HomePage'))
 // axios.defaults.headers(['X-CSRF-Token'])
 
 //only send jwt to the api
-const apiUrl = "https://fast-sierra-37663.herokuapp.com/api/"//"http://localhost:3000/api/"
+const apiUrl = "https://fast-sierra-37663.herokuapp.com/api"//"http://localhost:3000/api/"
 
 axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*"
 
