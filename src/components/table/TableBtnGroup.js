@@ -15,19 +15,19 @@ function TableDataButtonGroup(props){
                     <button className="btn btn-secondary btn-lg"
                     style={props.tableDataType==="clients" ? selectedStyle : null}
                     onClick={() => props.handleClick("clients")}
-                    ><b>Clients</b></button>
+                    ><b>Клиенты</b></button>
                 }
 
                     <button className="btn btn-secondary btn-lg"
                     style={props.tableDataType==="schedule" ? selectedStyle : null}
                     onClick={() => props.handleClick("schedule")}
-                    ><b>Schedule</b></button>
+                    ><b>Записи</b></button>
 
                 {props.isAdmin &&
                     <button className="btn btn-secondary btn-lg"
                     style={props.tableDataType==="employees" ? selectedStyle : null}
                     onClick={() => props.handleClick("employees")}
-                    ><b>Employees</b></button>
+                    ><b>Сотрудники</b></button>
                 }
 
             </div>
@@ -35,7 +35,7 @@ function TableDataButtonGroup(props){
                 <div className="svc-btn-container">
                     <button className="btn btn-secondary btn-sm btn-svc"
                     onClick={() => props.handleClick("services")}
-                    >Services</button>
+                    >Услуги</button>
                 </div>
 
         </div>

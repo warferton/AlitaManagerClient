@@ -29,15 +29,15 @@ const crossButton =
             </button>
 
 
-            <h3>Appointment Info</h3>
+            <h3>Информация по записи</h3>
 
-            <label htmlFor="serviceName">Service</label>
+            <label htmlFor="serviceName">Услуга</label>
             <input type="text" readOnly={true} name='serviceName' className="form-control text-input" value={props.serviceName}/>
 
-            <label htmlFor="phone">Phone</label>
+            <label htmlFor="phone">Телефон Клиента</label>
             <input type="text" readOnly={true} name='phone' className="form-control text-input" value={props.clientPhone}/>
 
-            <label htmlFor="clientName">Name</label>
+            <label htmlFor="clientName">Имя Клиентв</label>
            <input type="text" name="clientName" readOnly={true} className="form-control text-input" value={props.clientName}/>
         </div>
     )

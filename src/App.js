@@ -22,13 +22,12 @@ const HomePage = lazy(() => import('./components/layouts/HomePage'))
 // axios.defaults.headers(['X-CSRF-Token'])
 
 //only send jwt to the api
-const apiUrl = "http://localhost:8080/api/"//"https://fast-sierra-37663.herokuapp.com/api/"//"http://localhost:3000/api/"
+const apiUrl = "https://fast-sierra-37663.herokuapp.com/api/"//"http://localhost:3000/api/"
 
-axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*"
 
 axios.interceptors.request.use(config =>{
   const {origin} = new URL(config.url)
-  const allowedOrigins = ['http://localhost:8080']
+  const allowedOrigins = ['https://fast-sierra-37663.herokuapp.com']
   if(!allowedOrigins.includes(origin)){
     config.headers.Authorization = null
     return config
@@ -63,8 +62,10 @@ function App() {
          setIsLoggedIn(false)
           console.log(response)
         }else{
+            // console.log(response)
             setLoginError(false)
-            localStorage.setItem('token', response.headers.authorization) // change to be stored in cookies later !!! <=======
+            // console.log(response.headers.authorization)
+            localStorage.setItem('token', response.headers.authorization) 
             localStorage.setItem('role', response.headers.role.toLowerCase())
             axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
             setUserRole(localStorage.getItem('role'))
@@ -90,7 +91,7 @@ function App() {
 
     //sidebar func
 
-    const logOptionString = isLoggedIn ?  "Log Out" : "Log In"
+    const logOptionString = isLoggedIn ?  "Выйти" : "Войти"
 
     const [sidebarOpen, setSidebarOpen] = useState(false)
 
@@ -122,12 +123,12 @@ function App() {
 
 
                               <Link to='/home'>
-                                <button className="btn btn-sidebar">Welcome page</button>
+                                <button className="btn btn-sidebar" >Главная</button>
                               </Link>
 
                               {isLoggedIn ? 
                               <Link to={`/user/${userRole}/manage`} >
-                                <button className="btn btn-sidebar">{ `${userRole.toUpperCase()} Page`}</button>
+                                <button className="btn btn-sidebar">{ `Страница ${userRole.toUpperCase()}`}</button>
                               </Link> 
                               :
                                <></>}

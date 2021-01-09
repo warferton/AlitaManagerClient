@@ -56,14 +56,14 @@ function Login(props){
                 </div>
                     <TextInput
                     id = "username-field"
-                    placeholder="Username"
+                    placeholder="Имя пользователя"
                     name="username" 
                     type = "text"
                     />
                     
                     <TextInput
                     id = "password-field"
-                    placeholder="Password"
+                    placeholder="Пароль"
                     name="password" 
                     type = "password"
                     />
@@ -71,13 +71,13 @@ function Login(props){
                     <button 
                     className="btn-login" 
                     type="submit"
-                    >Log In</button>
+                    >Войти</button>
 
                     {
                         props.error &&
 
                         <div className="error alert alert-danger">
-                            Wrong username or password
+                            Неправильное имя пользователя или пароль
                         </div>
                     }
                     

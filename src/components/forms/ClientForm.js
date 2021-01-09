@@ -31,19 +31,19 @@ function ClientForm(props){
             validationSchema={
                 Yup.object({
                     firstName: Yup.string()
-                    .max(30, 'Must be less then 30 characters')
-                    .required('Required'),
+                    .max(30, 'Должно быть меньше 30 знаков')
+                    .required('Необходимо заполнить'),
 
                     lastName: Yup.string()
-                    .max(30, 'Must be greater than 30 characters')
-                    .required('Required'),
+                    .max(30, 'Должно быть меньше 30 знаков')
+                    .required('Необходимо заполнить'),
 
                     telegramName: Yup.string(),
 
                     telephoneNumber: Yup.string()
-                    .min(11, 'Must be 11 digits long')
-                    .max(11, 'Must be 11 digits long')
-                    .required('Required')
+                    .min(11, 'Должен быть длиной в 11 знаков')
+                    .max(11, 'Должен быть длиной в 11 знаков')
+                    .required('Необходимо заполнить')
 
                 })
             }
@@ -68,11 +68,11 @@ function ClientForm(props){
                     {crossButton}
                 </button>
 
-                <h2>Add Client</h2>
+                <h2>Добавить Клиента</h2>
 
                 <TextInput
                 id = "text-field-1"
-                label = "First Name"
+                label = "Имя"
                 name = "firstName"
                 type = "text"
                 placeholder = "John"
@@ -80,7 +80,7 @@ function ClientForm(props){
 
                 <TextInput
                 id = "text-field-2"
-                label = "Last Name"
+                label = "Фамилия"
                 name = "lastName"
                 type = "text"
                 placeholder = "Smith"
@@ -88,7 +88,7 @@ function ClientForm(props){
 
                 <TextInput
                 id = "text-field-3"
-                label = "Telephone"
+                label = "Телефон"
                 name = "telephoneNumber"
                 type = "phone"
                 placeholder = "+1-222-333-44-55"
@@ -96,7 +96,7 @@ function ClientForm(props){
 
                 <TextInput
                 id = "text-field-4"
-                label = "Telegram Name"
+                label = "Имя Telegram"
                 name = "telegramName"
                 type = "text"
                 placeholder = "@johtnSmith23"
@@ -106,7 +106,7 @@ function ClientForm(props){
                 type="submit"
                 id="btn-submit"
                 className="btn btn-secondary add-btn"
-                >Submit
+                >Добавить
                 </button>
             </Form>
         </Formik>

@@ -32,12 +32,12 @@ function EmployeeForm(props){
                 validationSchema ={
                     Yup.object({
                         firstName: Yup.string()
-                        .max(30, 'Must be less then 30 characters long')
-                        .required('Required'),
+                        .max(30, 'Должно быть меньше 30 знаков')
+                        .required('Необходимо заполнить'),
 
                         lastName: Yup.string()
-                        .max(30, 'Must be less then 30 characters long')
-                        .required('Required')
+                        .max(30, 'Должно быть меньше 30 знаков')
+                        .required('Необходимо заполнить')
                     })
                 }
                 onSubmit = {(values, {setSubmitting}) =>{
@@ -62,11 +62,11 @@ function EmployeeForm(props){
                             {crossButton}
                         </button>
 
-                        <h2>Add Employee</h2>
+                        <h2>Добавить Сотрудника</h2>
 
                         <TextInput
                         id="text-field-1"
-                        label="First Name"
+                        label="Имя"
                         name="firstName"
                         type="text"
                         placeholder="John"
@@ -74,7 +74,7 @@ function EmployeeForm(props){
 
                         <TextInput
                         id="text-field-2"
-                        label="Last Name"
+                        label="Фамилия"
                         name="lastName"
                         type="text"
                         placeholder="Smith"
@@ -84,7 +84,7 @@ function EmployeeForm(props){
                         type="submit" 
                         id="btn-submit"
                         className="btn btn-secondary btn add-btn"
-                        >Submit
+                        >Добавить
                     </button>
                 </Form>
             </Formik>

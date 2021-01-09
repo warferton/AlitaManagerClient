@@ -31,13 +31,13 @@ switch(props.tableDataType){
          tableHeader = 
                 <tr>
                     <th>
-                        <h3>First Name</h3>
+                        <h3>Имя</h3>
                     </th>
                     <th>
-                        <h3>Last Name</h3>
+                        <h3>Фамилия</h3>
                     </th>
                     <th>
-                        <h3>Telephone</h3>
+                        <h3>Телефон</h3>
                     </th>
                     <th colSpan="6"></th>
                 </tr>
@@ -59,10 +59,10 @@ switch(props.tableDataType){
          tableHeader = 
                 <tr>
                     <th>
-                        <h3>First Name</h3>
+                        <h3>Имя</h3>
                     </th>
                     <th>
-                        <h3>Last Name</h3>
+                        <h3>Фамилия</h3>
                     </th>
                     <th colSpan="6"></th>
                 </tr>
@@ -83,16 +83,16 @@ switch(props.tableDataType){
          tableHeader =
                     <tr>
                         <th>
-                            <h3>Service</h3>
+                            <h3>Услуга</h3>
                         </th>
                         <th>
-                            <h3>Date</h3>
+                            <h3>Дата</h3>
                         </th>
                         <th>
-                            <h3>Time</h3>
+                            <h3>Время</h3>
                         </th>
                         <th>
-                            <h3>Empl.</h3>
+                            <h3>Мастер</h3>
                         </th>
                         <th>
                             <h3><i className="fa fa-check"></i></h3>
@@ -154,13 +154,13 @@ switch(props.tableDataType){
         tableHeader =
                 <tr>
                     <th>
-                        <h3>Service Name</h3>
+                        <h3>Услуга</h3>
                     </th>
                     <th>
-                        <h3>Price</h3>
+                        <h3>Цена</h3>
                     </th>
                     <th>
-                        <h3>Estimated Time</h3>
+                        <h3>Предп. длительность</h3>
                     </th>
                     <th colSpan="6"></th>
                 </tr>

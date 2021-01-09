@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Modal from 'react-modal'
 
-
 import axios from 'axios'
 import AppointmentForm from '../forms/AppointmentForm'
 
@@ -21,9 +20,16 @@ function HomePage(props){
 
 
     useEffect(() => {
-        axios.get(apiUrl + 'services').then((response) => setServiceData(response.data))
+        let isMounted = true
+
+        axios.get(apiUrl + 'services').then((response) => isMounted && setServiceData(response.data))
         .catch((error) => {console.error(error)})
+
+        return () => {isMounted = false}
+
     },[apiUrl])
+
+    
 
 
     const handleAddAppointment = (data, requestBody) => { //!!HARDCODED URL!! 
@@ -80,8 +86,7 @@ function HomePage(props){
             <div className='homePage-btn-container-1'>
                 <div className='homePage-btn-container-2'>
                     <button className="create-appointment-button" onClick={() => setDisplayForm(!displayForm)}>
-                        <p>Make</p> 
-                        <p>Appointment</p>
+                        <p>Записаться</p>
                     </button>
                 </div>
             </div>

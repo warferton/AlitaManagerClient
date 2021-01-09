@@ -54,16 +54,16 @@ function ServiceForm(props){
             validationSchema={
                 Yup.object({
                     service_name: Yup.string()
-                    .max(30, 'Must be less then 30 characters')
-                    .required('Required'),
+                    .max(30, 'Должен быть меньше 30 знаков')
+                    .required('Необходимо заполнить'),
 
                     price: Yup.number()
-                    .max(20000, "Price is too big")
-                    .min(200, "Price is too small")
-                    .required('Required'),
+                    .max(20000, "Слишком высокое значения")
+                    .min(200, "Слишком низкое значение")
+                    .required('Необходимо заполнить'),
 
                     estimatedTime: Yup.string()
-                    .required('Required')
+                    .required('Необходимо заполнить')
 
                 })
             }

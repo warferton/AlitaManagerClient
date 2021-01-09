@@ -82,7 +82,7 @@ function GuestAppointmentForm(props){
                 Yup.object({
                     
                     date_time: Yup.string()
-                    .required('Required')
+                    .required('Необходимо заполнить')
                     .nullable()
                     ,
                 
@@ -92,17 +92,17 @@ function GuestAppointmentForm(props){
                     ,
 
                     client: Yup.object().shape({
-                        first_name: Yup.string().max(15, "Must be less then 15 characters long").ensure(), 
-                        telephone_number: Yup.string().required("Required")
-                        .matches(phoneRegExp, "Should Be a phone")
-                        .min(11, 'Must be at least 11 digits long')
-                        .max(12, 'Must less then 13 digits long')
+                        first_name: Yup.string().max(15, "Должно быть меньше 15 знаком").ensure(), 
+                        telephone_number: Yup.string().required("Необходимо заполнить")
+                        .matches(phoneRegExp, "Должно быть номером телефона")
+                        .min(11, 'Должно быть минимум 11 знаков')
+                        .max(12, 'Должно быть максимум 13 знаков')
                         .ensure(),
                     }),
 
                     employees: Yup.array().of(Yup.object()
                     .shape({
-                        firstName: Yup.string().max(15, 'Must less then 15 characters long').ensure()
+                        firstName: Yup.string().max(15, 'Должно быть максимум 15 знаков').ensure()
                     })
                     ).compact()
                     
@@ -137,7 +137,7 @@ function GuestAppointmentForm(props){
                         {crossButton}
                     </button>
 
-                    <h2>Add Appointment</h2>
+                    <h2>Добавить запись</h2>
 
                     <div className="datepicker-container">
                         <h3>Date&Time</h3>
@@ -156,13 +156,13 @@ function GuestAppointmentForm(props){
                                 values.service = e.target.value
                                 }
                             }>
-                            <option value="">Select service</option>
+                            <option value="">Выбрать Услугу</option>
                             {serviceOptions}
                         </SelectInput>
 
                         <TextInput
                         id="text-filed-3"
-                        label = "Duration"
+                        label = "Длительность"
                         name = "estimatedTime"
                         type="text"
                         value={serviceTime}
@@ -170,37 +170,37 @@ function GuestAppointmentForm(props){
                         />
                     </div>
                     <div>
-                        <h3>Your Info</h3>
+                        <h3>Личная Инф.</h3>
                         <TextInput
                             id="text-filed-4"
-                            label = "Phone Number"
+                            label = "Телефон"
                             name = "client.telephone_number"
                             type="phone"
                             placeholder = "8-123-456-78-90"
                             /> 
                         <TextInput
                             id="text-filed-4"
-                            label = "First Name (Not Needed)"
+                            label = "Имя (Не обязательно)"
                             name = "client.first_name"
                             type="text"
                             /> 
                     </div>
                     {props.isLoggedIn &&
-                    <CheckBoxInput id="text-field-5" name="confirmed">Confirmed?</CheckBoxInput>
+                    <CheckBoxInput id="text-field-5" name="confirmed">Подтвержденная запись?</CheckBoxInput>
                     }
                     <FieldArray
                         name="employees"
                         >
                         {({insert, remove, push})=> (
                             <div>
-                                <h3>Add Employee</h3>
+                                <h3>Указать мастера</h3>
                                 {values.employees.length > 0 &&
                                 values.employees.map((employee, index) =>(
                                     <div className ="row" key={index}>
                                         <div className="col">
                                             <TextInput
                                             id="text-filed-5"
-                                            label = "First Name"
+                                            label = "Имя"
                                             name = {`employees.${index}.firstName`}
                                             type="text"
                                             placeholder = "Alice"
@@ -222,7 +222,7 @@ function GuestAppointmentForm(props){
                                 type="button"
                                 className="btn btn-secondary"
                                 onClick={() => push({firstName:'', lastName:''})}>
-                                    Add Employee
+                                    Добавить сотрудника
                                 </button>
                             </div>
                         )}
@@ -233,7 +233,7 @@ function GuestAppointmentForm(props){
                     id="btn-submit"
                     type = "submit"
                     >
-                        Add
+                        Добавить
                     </button>
                 </Form>
             )}
