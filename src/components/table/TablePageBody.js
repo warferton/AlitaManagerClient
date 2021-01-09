@@ -46,7 +46,7 @@ class TablePageBody extends Component{
             if(this.state.dataType === "schedule"){
                 const appointmentUrl = "/appointments"
                 const workdayUrl = "/workdays"
-                const servicesUrl = "/services"
+                const servicesUrl = "services"
 
                 const appointmentsGet = axios.get(this.state.apiUrl.concat(this.state.dataType).concat(appointmentUrl))
                 const workdayGet = axios.get(this.state.apiUrl.concat(this.state.dataType).concat(workdayUrl))

@@ -21,7 +21,7 @@ function HomePage(props){
 
 
     useEffect(() => {
-        axios.get(apiUrl + '/services').then((response) => setServiceData(response.data))
+        axios.get(apiUrl + 'services').then((response) => setServiceData(response.data))
         .catch((error) => {console.error(error)})
     },[apiUrl])
 
