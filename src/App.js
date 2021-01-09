@@ -22,12 +22,12 @@ const HomePage = lazy(() => import('./components/layouts/HomePage'))
 // axios.defaults.headers(['X-CSRF-Token'])
 
 //only send jwt to the api
-const apiUrl = "http://localhost:3000/api/" //"https://fast-sierra-37663.herokuapp.com/api/"//"http://localhost:3000/api/"
+const apiUrl = "http://localhost:8080/api/" //"https://fast-sierra-37663.herokuapp.com/api/"//"http://localhost:3000/api/"
 
 
 axios.interceptors.request.use(config =>{
   const {origin} = new URL(config.url)
-  const allowedOrigins = ['http://localhost:3000']
+  const allowedOrigins = ['http://localhost:8080']
   if(!allowedOrigins.includes(origin)){
     config.headers.Authorization = null
     return config
