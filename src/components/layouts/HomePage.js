@@ -41,12 +41,15 @@ function HomePage(props){
         .concat(extra)
         .concat("/add/one/"), requestBody).then((response =>{
             if(response.status === 200 || response.status === 201) {
-                alert("Successfully created an appointment!")
+                alert("Запись успешно добавлена!")
             }
         }))
         .catch(error => {
-            if(error.response.status){
-                alert("The selected time is already reserved")
+            if(error.response.status === 507){
+                alert("Данное время уже зарезервировано")
+            }
+            else{
+                alert("Произошла ошибка при проведении запроса.")
             }
         console.log(error.message)
         }
