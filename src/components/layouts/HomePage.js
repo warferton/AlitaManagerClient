@@ -67,7 +67,7 @@ function HomePage(props){
                         handleSubmit={handleAddAppointment}
                         handleRefresh={()=>{}}
                         className="input-form"
-                        isLoggedIn={props.isLoggedIn}/>
+                        />
                     )
 
 

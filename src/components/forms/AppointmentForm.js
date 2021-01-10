@@ -137,7 +137,7 @@ function GuestAppointmentForm(props){
                         {crossButton}
                     </button>
 
-                    <h2>Добавить запись</h2>
+                    <h2>{updateFlag ? "Изменить" : "Добавить"} запись</h2>
 
                     <div className="datepicker-container">
                         <h3>Date&Time</h3>
@@ -186,7 +186,7 @@ function GuestAppointmentForm(props){
                             /> 
                     </div>
                     {props.isLoggedIn &&
-                    <CheckBoxInput id="text-field-5" name="confirmed">Подтвержденная запись?</CheckBoxInput>
+                        <CheckBoxInput id="text-field-5" name="confirmed">Подтвержденная запись?</CheckBoxInput>
                     }
                     <FieldArray
                         name="employees"
@@ -222,7 +222,7 @@ function GuestAppointmentForm(props){
                                 type="button"
                                 className="btn btn-secondary"
                                 onClick={() => push({firstName:'', lastName:''})}>
-                                    Добавить сотрудника
+                                    Добавить мастера
                                 </button>
                             </div>
                         )}
@@ -233,7 +233,7 @@ function GuestAppointmentForm(props){
                     id="btn-submit"
                     type = "submit"
                     >
-                        Добавить
+                        {updateFlag ? "Изменить" :"Добавить"}
                     </button>
                 </Form>
             )}

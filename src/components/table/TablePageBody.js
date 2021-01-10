@@ -173,6 +173,7 @@ class TablePageBody extends Component{
                         
                         ((this.state.dataType === 'schedule') ? 
                         (<AppointmentForm 
+                        isLoggedIn={true}
                         data={this.state.formProps}
                         postUrl = {this.state.apiUrl.concat(this.state.dataType)}
                         services = {this.state.services}

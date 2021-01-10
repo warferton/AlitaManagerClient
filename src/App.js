@@ -168,7 +168,7 @@ function App() {
 
 
                 <Route exact path="/home" component={() => 
-                  <HomePage apiUrl = {apiUrl} />
+                  <HomePage apiUrl = {apiUrl}/>
                 }/>
 
                 <Route exact path={"/login"} component={() => <Login apiUrl = {apiUrl} handleLogin={login} error={loginError}/> }/>

@@ -370,6 +370,17 @@ div.search-container button.search-btn {
   table > tbody > thead {
     width: auto;
   }
+
+  table.table.table-striped thead.thead-dark tr th {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+  }
+
+  table.table.table-striped tbody#dataTable tr td p {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   table.table.table-striped thead.thead-dark tr th h3 {
     font-size: small;
     font-weight: 500;
