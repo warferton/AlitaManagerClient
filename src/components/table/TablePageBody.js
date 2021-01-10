@@ -156,7 +156,7 @@ class TablePageBody extends Component{
                 this.setState({
                 elementDeleted: true
             })
-        }, 200)
+        }, 300)
         
     }
 
