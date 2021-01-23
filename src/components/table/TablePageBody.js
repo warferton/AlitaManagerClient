@@ -21,6 +21,7 @@ class TablePageBody extends Component{
             data : [],
             secondaryData : [],
             services : [],
+            employees: [],
             apiUrl: props.apiUrl,
             elementDeleted: false,
             displayForm: false,
@@ -47,21 +48,27 @@ class TablePageBody extends Component{
                 const appointmentUrl = "/appointments"
                 const workdayUrl = "/workdays"
                 const servicesUrl = "services"
+                const employeeUrl = "employees/public/names"
 
                 const appointmentsGet = axios.get(this.state.apiUrl.concat(this.state.dataType).concat(appointmentUrl))
                 const workdayGet = axios.get(this.state.apiUrl.concat(this.state.dataType).concat(workdayUrl))
                 const servicesGet = axios.get(this.state.apiUrl.concat(servicesUrl))
+                const employeeGet = axios.get(this.state.apiUrl.concat(employeeUrl))
 
-                axios.all([appointmentsGet, workdayGet, servicesGet]).then(
+                axios.all([appointmentsGet, workdayGet, servicesGet, employeeGet]).then(
                     axios.spread((...allData) => {
                         this.setState({
                             data: allData[0].data,
                             secondaryData: allData[1].data,
                             services: allData[2].data,
+                            employees: allData[3].data,
                             loading: false
                         })
                     })
-                ).catch(err => {throw new Error('FETCH_ERROR')})
+                ).catch(err => {
+                    console.log(err)
+                    throw new Error('FETCH_ERROR')
+                                })
                 
             }
             else{
@@ -71,7 +78,9 @@ class TablePageBody extends Component{
                         data : responseData.data,
                         loading: false
                     })
-                }).catch(err => {throw new Error('FETCH_ERROR')})
+                }).catch(err => {
+                    console.log(err)
+                    throw new Error('FETCH_ERROR')})
                 
             }
         
@@ -177,6 +186,7 @@ class TablePageBody extends Component{
                         data={this.state.formProps}
                         postUrl = {this.state.apiUrl.concat(this.state.dataType)}
                         services = {this.state.services}
+                        employees = {this.state.employees}
                         handleToggleClick={this.handleToggleFormClick} 
                         handleSubmit={this.handleAddOneElementClick}
                         handleUpdate={this.handleUpdateComponentClick}

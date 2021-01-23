@@ -26,6 +26,10 @@ function GuestAppointmentForm(props){
         service => <option key={service.id} value={service.servcieName} data={service}>{service.service_name}</option>
     )
 
+    const employeeOptions = props.employees.map(
+        employee => <option key={employee} value={employee}>{employee}</option>
+    )
+
     //pass current appointment vars
     const currenVariables = props.data
 
@@ -44,11 +48,18 @@ function GuestAppointmentForm(props){
                                     
     const [service, setService] = useState((typeof currenVariables !== 'undefined') ?
                                     currenVariables.service : {})
+
+    const [employees, setEmployees] = useState((typeof currenVariables !== 'undefined') ?
+                                    currenVariables.employees : {})
+
     const [serviceTime, setServiceTime]= useState(service.estimatedTime)
-    const [selectValue, setSelectValue] = useState(service.service_name)
+
+    const [selectValueService, setSelectValueService] = useState(service.service_name)
+
+    const [selectValueEmployee, setSelectValueEmployee] = useState()
 
 
-    const handleSelectChange = (event)=>{
+    const handleSelectServiceChange = (event)=>{
         const {value} = event.target
         setServiceTime('')
         if(value !== '')
@@ -59,23 +70,23 @@ function GuestAppointmentForm(props){
             setServiceTime(estTime)
             setService(svc)
         }
-        setSelectValue(value)
+        setSelectValueService(value)
 
     }
+
 
     return(
         <Formik
             initialValues={{
                 id: id,
                 date_time: dateTime,
-                service: selectValue,
+                service: selectValueService,
                 client:{
                     first_name: client.firstName, 
                     telephone_number: client.telephoneNumber
                 },
                 employees:[{
-                    firstName:'', 
-                    lastName:''
+                    first_name: ""
                 }]
             }}
             validationSchema={
@@ -87,7 +98,7 @@ function GuestAppointmentForm(props){
                     ,
                 
                     service: Yup.string().required()
-                    .notOneOf(['', 'Select service'])
+                    .notOneOf(['', 'Выбрать'])
                     .nullable()
                     ,
 
@@ -100,11 +111,10 @@ function GuestAppointmentForm(props){
                         .ensure(),
                     }),
 
-                    employees: Yup.array().of(Yup.object()
-                    .shape({
-                        firstName: Yup.string().max(15, 'Должно быть максимум 15 знаков').ensure()
-                    })
-                    ).compact()
+                    employees: Yup.array().of(Yup.object({
+                        first_name: Yup.string().notOneOf(['', 'Выбрать']).nullable()
+                    }).nullable()
+                    ).compact().required('Необходимо указать')
                     
                 })
             }
@@ -118,6 +128,7 @@ function GuestAppointmentForm(props){
                         props.handleSubmit("appointments", values)
                     }
                     setSubmitting(false)
+                    values.service = service.service_name
                     setTimeout(() => {
                         props.handleRefresh()
 
@@ -140,7 +151,7 @@ function GuestAppointmentForm(props){
                     <h2>{updateFlag ? "Изменить" : "Добавить"} запись</h2>
 
                     <div className="datepicker-container">
-                        <h3>Date&Time</h3>
+                        <h3>Дата&Время</h3>
                         <DatePickerField 
                             id="text-filed-1"
                             label = ""
@@ -149,14 +160,14 @@ function GuestAppointmentForm(props){
                     </div>
 
                     <div className="service-container">
-                        <h3>Select Service</h3>
-                        <SelectInput label="Service" name="service" id="select-field-2"
-                            value ={selectValue} onChange={(e) =>{
-                                handleSelectChange(e)
+                        <h3>Выбрать Услугу</h3>
+                        <SelectInput label="Услуга" name="service" id="select-field-2"
+                            value ={selectValueService} onChange={(e) =>{
+                                handleSelectServiceChange(e)
                                 values.service = e.target.value
                                 }
                             }>
-                            <option value="">Выбрать Услугу</option>
+                            <option value="">Выбрать</option>
                             {serviceOptions}
                         </SelectInput>
 
@@ -198,13 +209,26 @@ function GuestAppointmentForm(props){
                                 values.employees.map((employee, index) =>(
                                     <div className ="row" key={index}>
                                         <div className="col">
-                                            <TextInput
+
+                                            <SelectInput label="Имя" name={`employees.${index}.first_name`} id="text-filed-5"
+                                                // value ={selectValueEmployee} onChange={(e) =>{
+                                                //     const indx = e.target.name.substring(10)
+                                                //     console.log(indx)
+                                                //     values.employees.[indx].first_name = e.target.value
+                                                //     console.log(values.employees)
+                                                //     }}
+                                                >
+                                                <option value="">Выбрать</option>
+                                                {employeeOptions}
+                                            </SelectInput>
+
+                                            {/* <TextInput
                                             id="text-filed-5"
                                             label = "Имя"
                                             name = {`employees.${index}.firstName`}
                                             type="text"
                                             placeholder = "Alice"
-                                            />
+                                            /> */}
                                         </div>
                                         <div className="col">
                                             <button
@@ -221,7 +245,7 @@ function GuestAppointmentForm(props){
                                 <button
                                 type="button"
                                 className="btn btn-secondary"
-                                onClick={() => push({firstName:'', lastName:''})}>
+                                onClick={() => push({})}>
                                     Добавить мастера
                                 </button>
                             </div>

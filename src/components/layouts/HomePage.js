@@ -18,11 +18,16 @@ function HomePage(props){
 
     const [serviceData, setServiceData] = useState([])
 
+    const [employeeData, setEmployeeData] = useState([])
+
 
     useEffect(() => {
         let isMounted = true
 
         axios.get(apiUrl + 'services').then((response) => isMounted && setServiceData(response.data))
+        .catch((error) => {console.error(error)})
+
+         axios.get(apiUrl + 'employees/public/names').then((response) => isMounted && setEmployeeData(response.data))
         .catch((error) => {console.error(error)})
 
         return () => {isMounted = false}
@@ -40,8 +45,9 @@ function HomePage(props){
         .concat('schedule')
         .concat(extra)
         .concat("/add/one/"), requestBody).then((response =>{
-            if(response.status === 200 || response.status === 201) {
-                alert("Запись успешно добавлена!")
+            console.log(response);
+            if(response.status >= 200 || response.status < 300) {
+                alert(`Создана запись на ${response.data.intervalStart} \n Мастер: ${response.data.employee}`);
             }
         }))
         .catch(error => {
@@ -51,7 +57,7 @@ function HomePage(props){
             else{
                 alert("Произошла ошибка при проведении запроса.")
             }
-        console.log(error.message)
+        console.log(error)
         }
         )
 
@@ -62,6 +68,7 @@ function HomePage(props){
                 <AppointmentForm 
                         postUrl = {apiUrl.concat('schedule/appointments')} //!!HARDCODED URL!!
                         services = {serviceData}
+                        employees = {employeeData}
                         handleToggleClick={()=>{setDisplayForm(!displayForm)
                                                     console.log(displayForm)}} 
                         handleSubmit={handleAddAppointment}
