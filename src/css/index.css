@@ -406,6 +406,10 @@ div.search-container button.search-btn {
     font-size: small;
   }
 
+  form div.service-container div.form-group.form-select select#select-field-2 {
+    max-width: 200px;
+  }
+
   /*DATEPICKER*/
 
   html
