@@ -97,7 +97,7 @@ function GuestAppointmentForm(props){
                     .nullable()
                     ,
                 
-                    service: Yup.string().required()
+                    service: Yup.string().required("Необходимо выбрать")
                     .notOneOf(['', 'Выбрать'])
                     .nullable()
                     ,
