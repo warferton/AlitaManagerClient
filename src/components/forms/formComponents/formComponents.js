@@ -7,6 +7,10 @@ import addMonths from "date-fns/addMonths"
 
 import 'react-datepicker/dist/react-datepicker.css'
 
+import { registerLocale } from "react-datepicker";
+import ro from 'date-fns/locale/ro';
+registerLocale("ro", ro)
+
 export const TextInput = ({label, ...props}) =>{
     const [field, meta] = useField(props)
     return(
@@ -81,6 +85,7 @@ export const DatePickerField = (props) => {
                             selected = {startDate}
                             minTime={setHours(setMinutes(new Date(), 0), 8)}
                             maxTime={setHours(setMinutes(new Date(), 30), 22)}
+                            locale="ro"
                             onChange = { val => {
                                 setFieldValue(name, val)
                                 setStartDate(val)
