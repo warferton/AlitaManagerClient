@@ -112,9 +112,9 @@ function GuestAppointmentForm(props){
                     }),
 
                     employees: Yup.array().of(Yup.object({
-                        first_name: Yup.string().notOneOf(['', 'Выбрать']).nullable()
+                        first_name: Yup.string().notOneOf(['', 'Выбрать']).nullable().required("Необходимо Выбрать")
                     }).nullable()
-                    ).compact().required('Необходимо указать')
+                    ).compact()
                     
                 })
             }
