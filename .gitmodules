@@ -1,0 +1,3 @@
+[submodule "Java_Backend"]
+	path = Java_Backend
+	url = https://github.com/warferton/AlitaManager
